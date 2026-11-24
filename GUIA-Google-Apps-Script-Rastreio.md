@@ -24,7 +24,7 @@ Click e atualiza uma planilha Google com o resultado.
 3. Clique no título do projeto, no alto da tela, e renomeie para
    **Rastreio de Pedidos - Frete Click**.
 
-<!-- PRINT 01: tela inicial de Meus projetos e botão Novo projeto. -->
+![Página Meus projetos do Apps Script](images/00-meus-projetos.png)
 
 ## 2. Adicionar o código
 
@@ -39,7 +39,7 @@ Click e atualiza uma planilha Google com o resultado.
 Use o conteúdo completo do arquivo. Não cole as crases de um bloco de código e
 não coloque a chave de API dentro do código.
 
-<!-- PRINT 02: editor do Apps Script mostrando o nome do projeto e o arquivo Código.gs. -->
+![Editor do projeto no Apps Script](images/01-editor-apps-script.png)
 
 ## 3. Configurar as propriedades do script
 
@@ -69,7 +69,7 @@ guardará o ID para as próximas execuções.
 > **Segurança:** não compartilhe capturas de tela que mostrem o valor da chave.
 > Se precisar registrar esta etapa, oculte completamente o campo **Valor**.
 
-<!-- PRINT 03: Propriedades do script com os nomes das propriedades; ocultar os valores. -->
+![Propriedades do script com valores confidenciais ocultos](images/03-propriedades-mascaradas.png)
 
 ## 4. Executar a primeira sincronização e autorizar o acesso
 
@@ -86,9 +86,6 @@ existir uma planilha configurada, será criada uma chamada
 **Rastreio de Pedidos Frete Click**, com uma aba chamada **Rastreio**. O link da
 planilha criada aparece no registro da execução; ela também pode ser localizada
 no Google Drive pelo nome.
-
-<!-- PRINT 04: seletor com atualizarRastreioFreteClick e botão Executar. -->
-<!-- PRINT 05: execução concluída com sucesso; ocultar dados de clientes e pedidos. -->
 
 ### Colunas do relatório
 
@@ -107,6 +104,8 @@ da API. A previsão é apresentada como um intervalo de datas quando há uma dat
 disponível. A orientação **“A previsão será atualizada após a coleta.”** fica
 como nota no cabeçalho da coluna de previsão.
 
+![Exemplo da planilha de rastreio com dados sensíveis ocultos](images/04-planilha-mascarada.png)
+
 ## 5. Ativar a atualização automática
 
 Depois de confirmar que a execução manual funcionou:
@@ -122,9 +121,9 @@ A função de instalação substitui um acionador anterior dessa mesma rotina an
 de criar outro, evitando duplicidade. Os horários são aproximados e a execução
 ocorre na conta Google que criou o acionador.
 
-<!-- PRINT 06: função instalarGatilhoRastreioFreteClick selecionada e execução. -->
-<!-- PRINT 07: lista de Acionadores mostrando a rotina e a frequência de 6 horas. -->
-<!-- PRINT 08: planilha final com a aba Rastreio; ocultar dados reais, se necessário. -->
+![Função de instalação do acionador selecionada no editor](images/02-instalar-acionador.png)
+
+![Lista de acionadores do projeto](images/01-acionadores.png)
 
 ## 6. Sobre o botão “Implantar”
 
@@ -159,20 +158,6 @@ criar uma implantação.
 | A automação não executou | Abra **Acionadores** e **Execuções** para verificar se o acionador existe e se houve erro. |
 | O relatório está em outra planilha | Verifique `FRETECLICK_SPREADSHEET_ID` nas propriedades do projeto. |
 
-## Capturas de tela para completar este guia
-
-As imagens podem ser adicionadas depois, nos espaços marcados acima. Sugestão
-de sequência:
-
-1. Página **Meus projetos**, destacando **Novo projeto**.
-2. Editor após a criação, mostrando o nome do projeto e `Código.gs`.
-3. **Configurações do projeto → Propriedades do script**, com os valores
-   ocultos.
-4. Editor com `atualizarRastreioFreteClick` selecionada e o botão **Executar**.
-5. Tela de autorização ou execução concluída, sem informações pessoais ou
-   dados reais de pedidos.
-6. Tela de **Acionadores** com a frequência de seis horas.
-7. Planilha final na aba **Rastreio**, com dados sensíveis ocultos.
-
-Não é necessário capturar o menu **Implantar**; ele não faz parte da configuração
-desta automação.
+As capturas incluídas ocultam os identificadores e dados operacionais. A lista
+de acionadores confirma a rotina ativa; para mostrar visualmente o intervalo
+exato de seis horas, abra a edição do acionador e capture a tela de configuração.

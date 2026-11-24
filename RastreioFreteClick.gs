@@ -1,12 +1,12 @@
 /**
  * Sincroniza pedidos de compra pendentes e seus eventos de rastreio para a aba "Rastreio".
  *
- * Configure FRETECLICK_API_TOKEN nas Script Properties.
- * O token é enviado no header api-token. O documento fictício padrão é 123.123.
+ * Configure FRETECLICK_API_TOKEN nas propriedades do script.
  */
 const FC_RASTREIO_API_ROOT_ = 'https://api.freteclick.com.br';
 const FC_RASTREIO_ORDERS_PATH_ = '/purchasing/orders';
 const FC_RASTREIO_SHEET_NAME_ = 'Rastreio';
+const FC_RASTREIO_TRACKING_KEY_ = '123.123';
 const FC_RASTREIO_PAGE_SIZE_ = 20;
 const FC_RASTREIO_MAX_PAGES_ = 100;
 const FC_RASTREIO_MAX_RUNTIME_MS_ = 4 * 60 * 1000;
@@ -139,7 +139,6 @@ function fcRastreioGetConfig_() {
   const props = PropertiesService.getScriptProperties();
   const token = props.getProperty('FRETECLICK_API_TOKEN') ||
     props.getProperty('FRETECLICK_TOKEN');
-  const document = String(props.getProperty('FRETECLICK_DOCUMENTO') || '123.123').trim();
   const realStatus = String(
     props.getProperty('FRETECLICK_REAL_STATUS') || FC_RASTREIO_DEFAULT_REAL_STATUS_
   ).trim();
@@ -147,13 +146,9 @@ function fcRastreioGetConfig_() {
   if (!token) {
     throw new Error('Configure FRETECLICK_API_TOKEN nas Script Properties.');
   }
-  if (!document) {
-    throw new Error('FRETECLICK_DOCUMENTO não pode ficar vazio.');
-  }
 
   return {
     token: token,
-    document: document,
     realStatus: realStatus
   };
 }
@@ -252,7 +247,7 @@ function fcRastreioBuildRow_(order, company, config, startedAt) {
     throw new Error('Pedido recebido sem id nem @id do Hydra.');
   }
   const url = FC_RASTREIO_API_ROOT_ + '/track/back/' +
-    encodeURIComponent(orderId) + '/' + encodeURIComponent(config.document);
+    encodeURIComponent(orderId) + '/' + encodeURIComponent(FC_RASTREIO_TRACKING_KEY_);
   const checkedAt = new Date();
   const quote = order.quote || (Array.isArray(order.quotes) ? order.quotes[0] : null);
   const carrier = quote && quote.carrier ? quote.carrier : {};

@@ -6,7 +6,7 @@ Scripts Google Apps Script relacionados ao Frete Click.
 
 - [`RastreioFreteClick.gs`](RastreioFreteClick.gs): sincroniza pedidos
   pendentes e atualiza a planilha de rastreio.
-- [Guia de criação e configuração](GUIA-Google-Apps-Script-Rastreio.md):
+- [Guia de criação e configuração](docs/GUIA-Google-Apps-Script-Rastreio.md):
   explica como criar o projeto, configurar a chave e ativar a atualização
   automática.
 

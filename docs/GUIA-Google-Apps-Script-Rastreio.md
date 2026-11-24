@@ -14,7 +14,7 @@ Click e atualiza uma planilha Google com o resultado.
 
 - Uma conta Google.
 - Uma chave de API Frete Click válida para o cliente.
-- O arquivo [`RastreioFreteClick.gs`](RastreioFreteClick.gs).
+- O arquivo [`RastreioFreteClick.gs`](../RastreioFreteClick.gs).
 - Acesso à página [Meus projetos do Apps Script](https://script.google.com/home/my).
 
 ## 1. Criar o projeto
@@ -28,7 +28,7 @@ Click e atualiza uma planilha Google com o resultado.
 
 ## 2. Adicionar o código
 
-1. Abra o arquivo [`RastreioFreteClick.gs`](RastreioFreteClick.gs) deste
+1. Abra o arquivo [`RastreioFreteClick.gs`](../RastreioFreteClick.gs) deste
    repositório.
 2. Copie todo o conteúdo do arquivo.
 3. No editor do Apps Script, abra o arquivo padrão `Código.gs` (ou `Code.gs`).
@@ -54,7 +54,6 @@ A chave deve ficar nas propriedades do projeto, não no código:
 | Propriedade | Valor | Obrigatória? | Finalidade |
 | --- | --- | --- | --- |
 | `FRETECLICK_API_TOKEN` | Chave de API do cliente | Sim | Autentica as chamadas à API Frete Click. |
-| `FRETECLICK_DOCUMENTO` | `123.123` | Não | Documento enviado ao endpoint de rastreio. Se omitido, o script usa `123.123`. |
 | `FRETECLICK_REAL_STATUS` | `pending` | Não | Status consultado. Se omitido, o script usa `pending`. |
 | `FRETECLICK_SPREADSHEET_ID` | ID de uma planilha existente | Não | Direciona o relatório para uma planilha existente. |
 

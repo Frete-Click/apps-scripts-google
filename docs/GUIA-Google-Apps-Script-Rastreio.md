@@ -101,7 +101,8 @@ A aba **Rastreio** contém:
 O status é traduzido para português e colorido conforme a informação recebida
 da API. A previsão é apresentada como um intervalo de datas quando há uma data
 disponível. A orientação **“A previsão será atualizada após a coleta.”** fica
-como nota no cabeçalho da coluna de previsão.
+como nota no cabeçalho da coluna de previsão. **Consultado em** mostra a data e
+o horário da consulta no formato `dd/MM/yyyy HH:mm:ss`.
 
 ![Exemplo da planilha de rastreio com dados sensíveis ocultos](images/04-planilha-mascarada.png)
 

@@ -100,6 +100,9 @@ function atualizarRastreioFreteClick() {
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
     if (rows.length) {
       sheet.getRange(2, 1, rows.length, headers.length).setValues(rows);
+      const checkedColumn = headers.indexOf('Consultado em') + 1;
+      sheet.getRange(2, checkedColumn, rows.length, 1)
+        .setNumberFormat('dd/MM/yyyy HH:mm:ss');
       const statusRange = sheet.getRange(2, 3, rows.length, 1);
       statusRange.setBackgrounds(statusBackgrounds);
       statusRange.setFontColors(statusFontColors);
@@ -333,7 +336,7 @@ function fcRastreioAutoSizeColumns_(sheet, headers, rows) {
     rows.forEach(function (row) {
       const value = row[columnIndex];
       const textLength = value instanceof Date
-        ? 16
+        ? 19
         : String(value === null || value === undefined ? '' : value).length;
       longestText = Math.max(longestText, textLength);
     });
